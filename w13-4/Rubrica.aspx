@@ -12,12 +12,18 @@
         <div>
             <h2> Contatti</h2>
             <hr />
-            <div id="Result" runat="server">
-                
-            </div>
+            
             <asp:Repeater ID="Repeater1" runat="server" ItemType="w13_4.Persona">
                     <ItemTemplate>
-                        <p><strong><%# Item.Nome%></strong></p>
+                        <div >
+                        <p><strong><%#Item.Nome + Item.Cognome %></strong></p>
+                        <p><%#Item.Indirizzo %></p>
+                         <p><%#Item.NumeroTelefono %></p>
+                         <p><%#Item.Email %></p>
+                        <a href="Dettagli.aspx?IdPersona=<%# Item.IdPersona %>">Dettagli</a>
+                    <img style="width:10%" src="Content/img/<%# Item.Foto %>"/>
+                              <hr />
+                      </div>
                     </ItemTemplate>
                 </asp:Repeater>
             <hr />

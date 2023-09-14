@@ -27,24 +27,21 @@ namespace w13_4
 
             while (sqlreader.Read())
             {
-                int idCliente = Convert.ToInt32(sqlreader["Id"].ToString());
-                Result.InnerHtml += $"<h3>{sqlreader["Nome"]} {sqlreader["Cognome"]}</h3>" +
-               $"<p>{sqlreader["Indirizzo"]}</p><p>{sqlreader["NumeroTelefono"]}</p><p>{sqlreader["Email"]}</p><a href='Dettagli.aspx?IdPersona={idCliente}'>Dettagli</a> <hr>";
+              // int idCliente = Convert.ToInt32(sqlreader["Id"].ToString());
+               // Result.InnerHtml += $"<h3>{sqlreader["Nome"]} {sqlreader["Cognome"]}</h3>" +
+               //$"<p>{sqlreader["Indirizzo"]}</p><p>{sqlreader["NumeroTelefono"]}</p><p>{sqlreader["Email"]}</p><a href='Dettagli.aspx?IdPersona={idCliente}'>Dettagli</a> <hr>";
 
-            }
-
-            while (sqlreader.Read())
-            {
-                Persona persona = new Persona();
-                persona.IdPersona = Convert.ToInt32(sqlreader["idClienti"]);
+            
+             Persona persona = new Persona();
+                persona.IdPersona = Convert.ToInt32(sqlreader["Id"]);
                 persona.Nome = sqlreader["Nome"].ToString();
                 persona.Cognome = sqlreader["Cognome"].ToString();
                 persona.Indirizzo = sqlreader["Indirizzo"].ToString();
                 persona.NumeroTelefono = sqlreader["NumeroTelefono"].ToString();
-                persona.Email = sqlreader["Indirizzo"].ToString();
-                persona.Foto = sqlreader["Email"].ToString();
+                persona.Email = sqlreader["Email"].ToString();
+                persona.Foto = sqlreader["Foto"].ToString();
                 listaPersone.Add(persona);
-
+            
             }
 
             Repeater1.DataSource = listaPersone;
